@@ -24,16 +24,11 @@
     - libgdbm-dev
   when: ansible_os_family == 'Debian'
 
-- name: Download ruby
-  get_url: >
-    url={{ ruby_download_url }}
-    dest={{ workspace }}/ruby-{{ ruby_version }}.tar
-
-- name: Extract ruby
-  command: >
-    tar -zxf {{ workspace }}/ruby-{{ ruby_version }}.tar
-    chdir={{ workspace }}
-    creates={{ workspace }}/ruby-{{ ruby_version }}
+- name: Download and Extract ruby
+  unarchive: >
+    src={{ ruby_download_url }}
+    dest={{ workspace }}/ruby-{{ ruby-version }}
+    creates={{ workspace }}/ruby-{{ ruby-version }}
 
 - name: Build ruby
   command: >
