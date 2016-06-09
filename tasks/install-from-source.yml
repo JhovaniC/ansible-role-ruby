@@ -29,6 +29,7 @@
     src={{ ruby_download_url }}
     dest={{ workspace }}
     creates={{ workspace }}/ruby-{{ ruby_version }}
+    copy=no
 
 - name: Build ruby
   command: >
