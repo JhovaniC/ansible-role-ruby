@@ -28,7 +28,7 @@
   unarchive: >
     src={{ ruby_download_url }}
     dest={{ workspace }}/ruby-{{ ruby_version }}
-    creates={{ workspace }}/ruby-{{ ruby_version }}
+    creates={{ workspace }}
 
 - name: Build ruby
   command: >
